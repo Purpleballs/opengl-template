@@ -3,7 +3,7 @@
 #include <GLFW/glfw3.h>
 #include <iostream>
 #include <string>
-//adding this comment to test commit and push git 
+
 class Window {
 public:
     Window(int width, int height, const char* title) {
