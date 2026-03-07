@@ -11,15 +11,15 @@ const unsigned int SCR_HEIGHT = 720;
 int main()
 {
 	Window window(SCR_WIDTH, SCR_HEIGHT, "OpenGL App");
-    Application app;
+    Application app(window);
     app.init();
 
     while (!window.shouldClose())
     {
         window.pollEvents();
-        window.updateDeltaTime();
-        app.handleInput(window.getHandle(), window.getdeltaTime());
-        app.update(window.getdeltaTime());
+        app.handleInput(window.getHandle());
+        app.update();
+		app.beginRender();
         app.render();
         window.swapBuffers();    
     }

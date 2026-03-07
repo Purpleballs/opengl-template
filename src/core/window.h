@@ -46,31 +46,9 @@ public:
     
     //getters
     GLFWwindow* getHandle() const { return handle; }
-    float getdeltaTime() const { return deltaTime; } 
-
-    void updateDeltaTime() {
-        float currentFrame = (float)glfwGetTime();
-        float dt = currentFrame - lastFrame;
-        lastFrame = currentFrame;
-
-        frameCount++;
-        timeAccumulator += dt;
-        if (timeAccumulator >= 1.0f) {
-            std::string title = "OpenGL App | FPS: " + std::to_string(frameCount);
-            glfwSetWindowTitle(handle, title.c_str());
-
-            frameCount = 0;
-            timeAccumulator = 0.0f;
-        }
-
-        deltaTime = dt;
-    }
+    
 private:
     GLFWwindow* handle;
-    float lastFrame = 0.0f;
-	int frameCount = 0;
-	float timeAccumulator = 0.0f;
-    float deltaTime = 0.0f;
 
     // Static wrapper needed for GLFW (C-style)
     static void framebuffer_size_callback(GLFWwindow* window, int width, int height) {

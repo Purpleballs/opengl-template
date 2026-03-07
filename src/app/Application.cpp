@@ -1,6 +1,10 @@
-#include "Application.h"
-#include <iostream>
+#include <glad/glad.h>  // if you use glad; must come before GLFW
 #include <GLFW/glfw3.h> //for events but might not actually want to include this here
+
+#include "Application.h"
+#include "core/window.h"
+#include <iostream>
+#include <string>
 //#include "core/camera.h"
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -13,9 +17,9 @@ void Application::init()
     glEnable(GL_DEPTH_TEST);
 }
 
-void Application::update(float dt)
+void Application::update()
 {
-	
+    updateDeltaTime();
 }
 void Application::beginRender()
 {
@@ -28,7 +32,7 @@ void Application::render()
 	// Placeholder for rendering code
 }
 
-void Application::handleInput(GLFWwindow* window, float dt)
+void Application::handleInput(GLFWwindow* window)
 {
       if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
           glfwSetWindowShouldClose(window, true); 
@@ -44,4 +48,21 @@ void Application::handleInput(GLFWwindow* window, float dt)
           camera.ProcessKeyboard(UP, dt); 
       if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS) 
           camera.ProcessKeyboard(DOWN, dt); 
+}
+void Application::updateDeltaTime() {
+    float currentFrame = (float)glfwGetTime();
+    float deltaTime = currentFrame - lastFrame;
+    lastFrame = currentFrame;
+
+    frameCount++;
+    timeAccumulator += deltaTime;
+    if (timeAccumulator >= 1.0f) {
+        std::string title = "OpenGL App | FPS: " + std::to_string(frameCount);
+        glfwSetWindowTitle(window.getHandle(), title.c_str());
+
+        frameCount = 0;
+        timeAccumulator = 0.0f;
+    }
+
+    dt = deltaTime;
 }
