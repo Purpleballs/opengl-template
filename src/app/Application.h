@@ -7,8 +7,10 @@ class Application {
 public:
     void init();
     void update(float dt);
+	void beginRender();
     void render();
 	void handleInput(GLFWwindow* window, float deltaTime);
+    
 
 private:
 	Camera camera;

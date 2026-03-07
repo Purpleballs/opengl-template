@@ -53,15 +53,12 @@ public:
         float dt = currentFrame - lastFrame;
         lastFrame = currentFrame;
 
-        // Logic to update title bar FPS every 1 second (cleaner than every 120 frames)
         frameCount++;
         timeAccumulator += dt;
-
         if (timeAccumulator >= 1.0f) {
             std::string title = "OpenGL App | FPS: " + std::to_string(frameCount);
             glfwSetWindowTitle(handle, title.c_str());
 
-            // Reset for next second
             frameCount = 0;
             timeAccumulator = 0.0f;
         }
