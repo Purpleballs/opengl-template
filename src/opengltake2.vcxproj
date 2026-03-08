@@ -162,6 +162,7 @@
     <ClInclude Include="..\..\..\..\..\..\opengl\include\stb_image.h" />
     <ClInclude Include="app\Application.h" />
     <ClInclude Include="core\camera.h" />
+    <ClInclude Include="core\RenderCommand.h" />
     <ClInclude Include="core\shader_c.hpp" />
     <ClInclude Include="core\shader_s.h" />
     <ClInclude Include="core\window.h" />

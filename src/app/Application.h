@@ -2,6 +2,7 @@
 
 #include "core/camera.h"
 
+// Forward declarations
 struct GLFWwindow;
 class Window;
 

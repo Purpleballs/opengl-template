@@ -9,22 +9,24 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+#include "core/RenderCommand.h"
 
 
 void Application::init()
 {
     std::cout << "Application Init\n";
-    glEnable(GL_DEPTH_TEST);
+	RenderCommand::Init();
 }
 
 void Application::update()
 {
     updateDeltaTime();
 }
+
 void Application::beginRender()
 {
-    glClearColor(0.1f, 0.1f, 0.15f, 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	RenderCommand::SetClearColor(0.1f, 0.1f, 0.15f, 1.0f);
+	RenderCommand::Clear();
 }
 
 void Application::render()
@@ -49,6 +51,7 @@ void Application::handleInput(GLFWwindow* window)
       if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS) 
           camera.ProcessKeyboard(DOWN, dt); 
 }
+
 void Application::updateDeltaTime() {
     float currentFrame = (float)glfwGetTime();
     float deltaTime = currentFrame - lastFrame;
