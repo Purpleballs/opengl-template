@@ -11,7 +11,7 @@ public:
         glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
         glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
         glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-
+		m_Title = title;
         handle = glfwCreateWindow(width, height, title, nullptr, nullptr);
         if (!handle) {
             std::cout << "Failed to create window" << std::endl;
@@ -46,10 +46,10 @@ public:
     
     //getters
     GLFWwindow* getHandle() const { return handle; }
-    
+    const std::string& getTitle() const { return m_Title; }
 private:
     GLFWwindow* handle;
-
+	std::string m_Title;
     // Static wrapper needed for GLFW (C-style)
     static void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
         glViewport(0, 0, width, height);

@@ -10,18 +10,9 @@ const unsigned int SCR_HEIGHT = 720;
 
 int main()
 {
-	Window window(SCR_WIDTH, SCR_HEIGHT, "OpenGL App");
+	Window window(SCR_WIDTH, SCR_HEIGHT, "OpenGL Sandbox");
     Application app(window);
     app.init();
-
-    while (!window.shouldClose())
-    {
-        window.pollEvents();
-        app.handleInput(window.getHandle());
-        app.update();
-		app.beginRender();
-        app.render();
-        window.swapBuffers();    
-    }
+    app.run();
     return 0;
 }

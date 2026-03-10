@@ -18,9 +18,22 @@ void Application::init()
 	RenderCommand::Init();
 }
 
+void Application::run()
+{
+    while (!window.shouldClose())
+    {
+        updateDeltaTime();
+        window.pollEvents();
+        handleInput(window.getHandle());
+        update();
+        beginRender();
+        render();
+        window.swapBuffers();
+    }
+}
+
 void Application::update()
 {
-    updateDeltaTime();
 }
 
 void Application::beginRender()
@@ -60,7 +73,7 @@ void Application::updateDeltaTime() {
     frameCount++;
     timeAccumulator += deltaTime;
     if (timeAccumulator >= 1.0f) {
-        std::string title = "OpenGL App | FPS: " + std::to_string(frameCount);
+        std::string title = window.getTitle() + " | FPS: " + std::to_string(frameCount);
         glfwSetWindowTitle(window.getHandle(), title.c_str());
 
         frameCount = 0;
