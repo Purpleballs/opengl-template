@@ -1,5 +1,5 @@
 #include <glad/glad.h>  // if you use glad; must come before GLFW
-#include <GLFW/glfw3.h> //for events but might not actually want to include this here
+#include <GLFW/glfw3.h> //for input but might not actually want to include this here
 
 #include "Application.h"
 #include "core/window.h"

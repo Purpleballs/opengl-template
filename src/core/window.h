@@ -6,13 +6,13 @@
 
 class Window {
 public:
-    Window(int width, int height, const char* title) {
+    Window(const char* title) {
         glfwInit();
         glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
         glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
         glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 		m_Title = title;
-        handle = glfwCreateWindow(width, height, title, nullptr, nullptr);
+        handle = glfwCreateWindow(1280, 720, title, nullptr, nullptr);
         if (!handle) {
             std::cout << "Failed to create window" << std::endl;
             glfwTerminate();
@@ -37,7 +37,7 @@ public:
     ~Window() {
         if(handle)
             glfwDestroyWindow(handle);
-        glfwTerminate();
+		glfwTerminate(); //move this to Application destructor if you want to support multiple windows in the future
     }
 
     bool shouldClose() { return glfwWindowShouldClose(handle); }
@@ -53,7 +53,7 @@ private:
     // Static wrapper needed for GLFW (C-style)
     static void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
         glViewport(0, 0, width, height);
-		//std::cout << "Window resized: " << width << "x" << height << std::endl;
+		std::cout << "Window resized: " << width << "x" << height << std::endl;
 
         // If you want your Application to respond to resize, 
         // you would retrieve it here via UserPointer
