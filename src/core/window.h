@@ -61,14 +61,10 @@ public:
 private:
     GLFWwindow* handle;
 	std::string m_Title;
-	static int m_Width;
-	static int m_Height;
     // Static wrapper needed for GLFW (C-style)
     static void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
         glViewport(0, 0, width, height);
 		std::cout << "Window resized: " << width << "x" << height << std::endl;
-		m_Width = width;
-		m_Height = height;
         // If you want your Application to respond to resize, 
         // you would retrieve it here via UserPointer
     }

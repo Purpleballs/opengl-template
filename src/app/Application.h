@@ -17,6 +17,7 @@ public:
 	void handleInput(GLFWwindow* window);
 	void updateDeltaTime();
 	float getdeltaTime() const { return dt; }
+	float getframeCount() const { return frameCount; }
 	void mouse_callback(GLFWwindow* window, double xposIn, double yposIn);
 
 private:

@@ -68,6 +68,11 @@ void Application::init()
     shader =  Shader("asset/shader/basicvert.vert", "asset/shader/basicfrag.frag");
 }
 
+void Application::beginRender()
+{
+    RenderCommand::Clear(0.1f, 0.1f, 0.15f, 1.0f);
+}
+
 void Application::update()
 {
     shader.use();
@@ -76,26 +81,18 @@ void Application::update()
     glm::mat4 view = camera.GetViewMatrix();
     shader.setMat4("view", view);
     shader.setMat4("projection", projection);
-
-    // world transformation
-    glm::mat4 model = glm::mat4(1.0f);
-    shader.setMat4("model", model);
-}
-
-void Application::beginRender()
-{
-	RenderCommand::Clear(0.1f, 0.1f, 0.15f, 1.0f);
 }
 
 void Application::render()
 {
 	shader.use();
-    //shader.setMat4("uMVP", glm::mat4(1.0f));
-    //shader.setVec3("aPos", 1.0f, 1.0f, 0.0f);
-	//glBindVertexArray(debugVAO);
-	//glDrawArrays(GL_TRIANGLES, 0, 3); 
-	//glBindVertexArray(0);
-	quad.Draw();
+    for (int i = 0; i < 10; i++)
+    {
+        glm::mat4 model = glm::mat4(1.0f);
+        model = glm::translate(model, glm::vec3(glm::sin(float(i)), float(i) / 5., glm::cos(float(i))));
+        shader.setMat4("model", model);
+        quad.Draw();
+    }
 }
 
 void Application::handleInput(GLFWwindow* window)
