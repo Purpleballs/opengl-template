@@ -6,9 +6,10 @@ namespace RenderCommand
 {
 
 
-    inline void SetClearColor(float r, float g, float b, float a)
+    inline void Clear(float r, float g, float b, float a)
     {
         glClearColor(r, g, b, a);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     }
 
     inline void Clear()

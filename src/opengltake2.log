@@ -1,4 +1,14 @@
 ﻿  Application.cpp
-  main.cpp
+  Geometry.cpp
+C:\Users\barts\source\repos\opengl-template\src\core\Geometry.cpp(198,24): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\barts\source\repos\opengl-template\src\core\Geometry.cpp(199,24): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\barts\source\repos\opengl-template\src\core\Geometry.cpp(200,24): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\barts\source\repos\opengl-template\src\core\Geometry.cpp(251,26): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\barts\source\repos\opengl-template\src\core\Geometry.cpp(252,26): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\barts\source\repos\opengl-template\src\core\Geometry.cpp(274,18): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\barts\source\repos\opengl-template\src\core\Geometry.cpp(275,17): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\barts\source\repos\opengl-template\src\core\Geometry.cpp(298,18): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\barts\source\repos\opengl-template\src\core\Geometry.cpp(299,17): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  errorReporting.cpp
   Generating Code...
   opengltake2.vcxproj -> C:\Users\barts\source\repos\opengl-template\x64\Debug\opengl-template.exe

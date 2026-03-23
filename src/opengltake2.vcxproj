@@ -154,6 +154,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="app\Application.cpp" />
+    <ClCompile Include="core\errorReporting.cpp" />
+    <ClCompile Include="core\Geometry.cpp" />
     <ClCompile Include="glad.c" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="stb.cpp" />
@@ -162,12 +164,16 @@
     <ClInclude Include="..\..\..\..\..\..\opengl\include\stb_image.h" />
     <ClInclude Include="app\Application.h" />
     <ClInclude Include="core\camera.h" />
+    <ClInclude Include="core\errorReporting.h" />
+    <ClInclude Include="core\Geometry.h" />
     <ClInclude Include="core\RenderCommand.h" />
     <ClInclude Include="core\shader_c.hpp" />
     <ClInclude Include="core\shader_s.h" />
     <ClInclude Include="core\window.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="asset\shader\basicfrag.frag" />
+    <None Include="asset\shader\basicvert.vert" />
     <None Include="asset\shader\computeShader.comp" />
     <None Include="asset\shader\fragshader.frag" />
     <None Include="asset\shader\screenQuad.frag" />

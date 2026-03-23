@@ -30,6 +30,12 @@
     <ClCompile Include="app\Application.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="core\errorReporting.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\Geometry.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\..\opengl\include\stb_image.h">
@@ -53,6 +59,12 @@
     <ClInclude Include="core\RenderCommand.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="core\errorReporting.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\Geometry.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="asset\shader\computeShader.comp" />
@@ -60,6 +72,8 @@
     <None Include="asset\shader\screenQuad.frag" />
     <None Include="asset\shader\screenQuad.vert" />
     <None Include="asset\shader\vertexshader.vert" />
+    <None Include="asset\shader\basicfrag.frag" />
+    <None Include="asset\shader\basicvert.vert" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="asset\texture\awesomeface.png">

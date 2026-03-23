@@ -3,7 +3,7 @@
 #include <GLFW/glfw3.h>
 #include <iostream>
 #include <string>
-
+#include "errorReporting.h"
 class Window {
 public:
     Window(const char* title) {
@@ -21,11 +21,14 @@ public:
 
         glfwMakeContextCurrent(handle);
 
+
         if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
         {
             std::cout << "Failed to initialize GLAD\n";
             throw std::runtime_error("Failed to initialize GLAD");
         }
+
+        enableReportGlErrors(); //probably should be called elsewere //is this even working
 
         // This allows us to get our C++ object back inside static callbacks
         glfwSetWindowUserPointer(handle, this);
@@ -44,19 +47,31 @@ public:
     void swapBuffers() { glfwSwapBuffers(handle); }
     void pollEvents() { glfwPollEvents(); }
     
+    void printresolution() const {
+        int width, height;
+        glfwGetFramebufferSize(handle, &width, &height);
+        std::cout << "Current resolution: " << width << "x" << height << std::endl;
+	}
+    void getresolution(int& width, int& height) const {
+        glfwGetFramebufferSize(handle, &width, &height);
+	}
     //getters
     GLFWwindow* getHandle() const { return handle; }
     const std::string& getTitle() const { return m_Title; }
 private:
     GLFWwindow* handle;
 	std::string m_Title;
+	static int m_Width;
+	static int m_Height;
     // Static wrapper needed for GLFW (C-style)
     static void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
         glViewport(0, 0, width, height);
 		std::cout << "Window resized: " << width << "x" << height << std::endl;
-
+		m_Width = width;
+		m_Height = height;
         // If you want your Application to respond to resize, 
         // you would retrieve it here via UserPointer
     }
+
 };
 

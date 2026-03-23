@@ -8,8 +8,8 @@ class Window;
 
 class Application {
 public:
-	Application(Window& window) : window(window){}
-    void init();
+	
+	Application(Window& window) : window(window){ init(); }
 	void run();
     void update();
 	void beginRender();
@@ -17,8 +17,10 @@ public:
 	void handleInput(GLFWwindow* window);
 	void updateDeltaTime();
 	float getdeltaTime() const { return dt; }
+	void mouse_callback(GLFWwindow* window, double xposIn, double yposIn);
 
 private:
+	void init(); //calling this in constructor not sure if that's a good idea.
 	Camera camera;
 	Window& window;
 	
